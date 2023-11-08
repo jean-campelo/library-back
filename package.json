@@ -8,6 +8,8 @@
     "@commitlint/config-conventional": "^18.1.0",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.53.0",
+    "eslint-config-google": "^0.14.0",
     "husky": "^8.0.3"
   },
   "config": {
