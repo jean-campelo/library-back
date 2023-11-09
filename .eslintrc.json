@@ -3,11 +3,16 @@
         "browser": true,
         "es2021": true
     },
-    "extends": "google",
+    "extends": ["google", 
+    "plugin:prettier/recommended"],
+    "plugins": ["prettier"],
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
     "rules": {
+        "prettier/prettier": "error",
+        "new-cap": "off",
+        "require-jsdoc": "off"
     }
 }
