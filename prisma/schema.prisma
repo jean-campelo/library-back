@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Book {
+  id             Int              @id @default(autoincrement())
+  title          String           @db.VarChar(255)
+  img            String           @db.VarChar(255)
+  publishYear    Int
+  pages          Int
+  description    String           @db.VarChar(400)
+  genre          Genre
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  Author         Author[]
+  PublishCompany PublishCompany[]
+}
+
+model Author {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(255)
+  img       String   @db.VarChar(255)
+  bookId    Int
+  book      Book     @relation(fields: [bookId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model PublishCompany {
+  id        Int      @id @default(autoincrement())
+  name      String   @db.VarChar(255)
+  img       String   @db.VarChar(255)
+  bookId    Int
+  book      Book     @relation(fields: [bookId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Genre {
+  FANTASY
+  THRILLER
+  SCIENCE_FICTION
+  MYSTERY
+  ROMANCE
+  HORROR
+  HISTORIAL
+  NON_FICTION
+  ADVENTURE
+  DRAMA
+  COMEDY
+  BIOGRAPHY
+}
