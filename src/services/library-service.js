@@ -11,6 +11,7 @@ async function registerBook({ title, img, publishYear, pages, description, genre
         pages,
         description,
         genre,
+        authorId,
     });
 
     return newBook;

@@ -6,9 +6,9 @@ async function findUniqueBook(title) {
     });
 }
 
-async function create({ title, img, publishYear, pages, description, genre }) {
+async function create({ title, img, publishYear, pages, description, genre, authorId }) {
     return prisma.book.create({
-        data: { title, img, publishYear, pages, description, genre },
+        data: { title, img, publishYear, pages, description, genre, authorId },
     });
 }
 
